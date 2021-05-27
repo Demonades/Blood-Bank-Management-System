@@ -1,4 +1,4 @@
-#include <iostream>;
+#include <iostream>
 #include<string>
 #include<vector>
 #include"person.h"
@@ -16,6 +16,7 @@ int main()
 	{
 		Doner doner(1,"Sara","saraahmed@gmail","123",20,"F","b-","Zy elfol");
 		doners.push_back(doner);
+		doner.serialize();
 	}
 	else if (type == "recipient")
 	{

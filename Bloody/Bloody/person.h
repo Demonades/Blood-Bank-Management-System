@@ -4,7 +4,7 @@
 using namespace std;
 class person
 {
-private:
+protected:
 	int ID, age;
 	string name, password, mail, gender, bloodtype;
 public:
