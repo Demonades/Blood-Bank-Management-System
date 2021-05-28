@@ -28,9 +28,10 @@ int main()
 		Recipient::serialize(recipients);
 	}
 	else if(type == "blood"){
-	    BloodBag b("O+");
-	    b.serialize();
-	    map<string,queue<BloodBag>> database = b.deserialize();
+        map<string,queue<BloodBag>> database = BloodBag::deserialize();
+        BloodBag b("TEST",time(NULL));
+        database["TEST"].push(b);
+	    BloodBag::serialize(database);
 
 
         for(auto x: database){
@@ -39,7 +40,7 @@ int main()
                 cout << BloodBag::displayString(x.second.front().date);
                 x.second.pop();
             }
-            cout << endl << endl;
+            cout << endl;
         }
 	}
 	else
