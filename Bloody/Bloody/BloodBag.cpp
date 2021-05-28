@@ -15,6 +15,7 @@ time_t fromString(string& s ) {
     time_t t;
     stream >> t;
     return t;
+    //okok
 }
 
 BloodBag::BloodBag(string type, time_t date){
