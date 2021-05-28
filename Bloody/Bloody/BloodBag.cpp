@@ -42,13 +42,18 @@ BloodBag::BloodBag(string type){
     cout << s  << " " << asctime(date);
 
  */
-void BloodBag::serialize(){
-    time_t now = time(NULL);
-    tm * date = localtime(&now);
+void BloodBag::serialize(map<string,queue<BloodBag>> database){
+    //time_t now = time(NULL);
+    //tm * date = localtime(&now);
     //precondition: pass a fully initialized recipient
     ofstream myfile;
-    myfile.open("../bloodbag.txt", ios_base::app);
-    myfile << type << " " << time(NULL) << endl;
+    myfile.open("../bloodbag.txt");
+    for(auto b: database) {
+        while (!b.second.empty()) {
+            myfile << b.second.front().type << " " << b.second.front().date << endl;
+            b.second.pop();
+        }
+    }
     myfile.close();
     //postcondition: recipient is serialized and saved to recipient file
 }
