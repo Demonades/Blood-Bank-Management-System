@@ -5,12 +5,9 @@ using namespace std;
 class person
 {
 protected:
-	int ID, age;
-	string name, password, mail, gender, bloodtype;
+    string name, password, mail, gender, bloodtype, ID, age;
 public:
-	person(int ID, string name, string mail, string password, int age, string gender, string bloodtype);
-	void login(int ID, string password);
-	
-	
-};
+    person(string ID, string name, string mail, string password, string age, string gender, string bloodtype);
+    virtual void login(string ID, string password);
 
+};
